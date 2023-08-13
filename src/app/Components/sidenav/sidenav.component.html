@@ -1,0 +1,98 @@
+<mat-toolbar class="mat-elevation-z8">
+ <div *ngIf="isloggedIn">
+  <button
+  mat-icon-button
+  *ngIf="sidenav.mode === 'over'"
+  (click)="sidenav.toggle()"
+>
+  <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+  <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+</button>
+ </div>
+  <span>MCA Project</span>
+      <span class="example-spacer"></span>
+      <button *ngIf="!isloggedIn" mat-raised-button style="margin-right:10px;" (click)="openmodelboxsign()">Register</button>
+  
+    <button *ngIf="!isloggedIn" mat-raised-button (click)="openmodelboxlogin()"><span class="material-icons">login</span>&nbsp; Login</button>
+  
+    <button *ngIf="isloggedIn" mat-raised-button (click)="openmodelboxlogout()" class="mr-2"><span class="material-icons">logout</span>&nbsp; Logout</button>
+  
+    <button *ngIf="isloggedIn" class="m-2" mat-raised-button matTooltip="Check Your Details here "
+    aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/admin/profile">{{user.firstname}}&nbsp;{{user.lastname}}<span class="material-icons">
+      account_circle
+      </span></button>
+ 
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <img
+      class="avatar mat-elevation-z8"
+      [src]="imgurl"
+    />
+
+    <h5 class="name" *ngIf="isloggedIn">{{user.firstname}}&nbsp;{{user.lastname}}</h5>
+    <p class="designation">Software Engineer</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/admin">
+      <mat-icon>home</mat-icon>
+      <span class="fontsizespan">Home</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/admin/tem">
+      <mat-icon>drive_file_move</mat-icon>
+      <span class="fontsizespan">Template</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/admin/uploads">
+      <mat-icon>drive_file_move</mat-icon>
+      <span class="fontsizespan">Upload Files</span>
+    </button>
+      <button mat-button class="menu-button" routerLink="/admin/cm">
+      <mat-icon>drive_file_move</mat-icon>
+      <span class="fontsizespan">Download Files</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/admin/extract">
+      <mat-icon>attachment</mat-icon>
+      <span class="fontsizespan">Extract Text</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/admin/pattern">
+      <mat-icon>pattern</mat-icon>
+      <span class="fontsizespan">Pattern Rule</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/admin/keyword">
+      <mat-icon>key_visualize</mat-icon>
+      <span class="fontsizespan">Keyword Rule</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/admin/filetype">
+      <mat-icon>drive_file_move_outline</mat-icon>
+      <span class="fontsizespan">File Type Rule</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/admin/profile">
+      <mat-icon>person</mat-icon>
+      <span class="fontsizespan">Profile</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/admin/about">
+      <mat-icon>info</mat-icon>
+      <span class="fontsizespan">About</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/admin/help">
+      <mat-icon>help</mat-icon>
+      <span class="fontsizespan">Help</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  
+     
+      <router-outlet></router-outlet>
+  
+  </mat-sidenav-content>
+</mat-sidenav-container>

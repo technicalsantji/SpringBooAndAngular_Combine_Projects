@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body text-center">
+
+            <form>
+
+            <div class="mb-3">
+                <h3 >Welcome To Extract Text From Pdf,Excel, Msoffice, Html,Xhtml,txt file,Mp3,Mp4 Page</h3>
+            <input class="form-control" type="file"  (change)="selectFile($event)">
+                
+            
+                <button class="m-2" mat-raised-button matTooltip="Are you sure !!"
+                aria-label="Button that displays a tooltip when focused or hovered over" color="primary" [disabled]="!selectedFiles" (click)="submittext()">found</button>
+            </div>
+           <h2>
+
+            <ckeditor *ngIf="expressions" [editor]="Editor" data="<p>Addhar Number: {{metaarr.addhar}}</p> <p>pattern: <b>{{metaarr.addharfound?'addhar found':' addhar not found' }}</b></p>
+                <p>Pan Number: {{metaarr.pan}}</p> <p>pattern: <b>{{metaarr.panfound?'Pan Card found':' Pan not found' }}</b></p>
+"></ckeditor>
+
+            
+           </h2>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

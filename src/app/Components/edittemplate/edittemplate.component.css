@@ -1,0 +1,7 @@
+.parent{
+    display: flex;
+    justify-content: space-around;
+}
+.mag{
+    margin-right:60%;
+}

@@ -1,0 +1,13 @@
+.mycolor{
+    background-color:#c109cd;
+    border-bottom:5px groove blue;
+    }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .bgcolor{
+    background-color: #82bbff;
+  }
+  
+ 
+  

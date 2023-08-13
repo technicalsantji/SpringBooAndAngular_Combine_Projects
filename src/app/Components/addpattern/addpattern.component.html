@@ -1,0 +1,109 @@
+<div class="container-fluid mt-3 ">
+    <div class="card bgc">
+        <div class="card-body hgt">
+            <button class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                aria-label="Button that displays a tooltip when focused or hovered over" 
+                color="primary"
+                routerLink="/admin/pattern">Back</button>
+
+             <form [formGroup]="patternsaveform" (ngSubmit)="formsubmit()">
+            <div class="row mt-3">
+
+                <div class="col-md-6" >
+
+                   <div class="row">
+                    <div class="col-md-6 text-center"><label class="mt-3" for="name"><b>Name</b></label></div>
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Name</mat-label>
+                            <input type="text" matInput placeholder="Enter the Pattern Name" name="name" [class.is-invalid]="func['name'].invalid && func['name'].touched"  formControlName="name">
+                          </mat-form-field >
+                    </div>
+                   </div>
+
+                   <div class="row">
+                    <div class="col-md-6 text-center"><label class="mt-3" for="name"><b>Descriptions</b></label></div>
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Descriptions</mat-label>
+                            <input type="text" matInput placeholder="Enter the Pattern Descriptions" name="description" [class.is-invalid]="func['description'].invalid && func['description'].touched" formControlName="description">
+                          </mat-form-field >
+                    </div>
+                   </div>
+
+                   <div class="row">
+                    <div class="col-md-6 text-center"><label class="mt-3" for="name"><b>add pattern</b></label></div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input type="text" matInput placeholder="Enter the Pattern" #name >
+                                </mat-form-field >
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                                    aria-label="Button that displays a tooltip when focused or hovered over" 
+                                    color="primary"
+                                   (click)="addkey(name.value)" >Add</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-6" style="border-left: 2px groove blue;">
+                   <div class="header">
+                    <h2 class="text-center">Added Pattern Rule List</h2>
+                   </div>
+                    <table class="table mt-3" *ngIf="checkarr">
+                         
+                        
+                        <tr *ngFor="let item of option;index as i">
+                            
+                            
+                            <td class="m-2 padd">
+
+                                <div class="parent">
+                                    <div>
+                                        <input type="checkbox" name="Pattern" (change)="onchange($event)" [value]="item" FormControlName.ngOnChanges="pattern" > {{item}}
+                                    </div>
+                                    <div>
+                                        <button mat-mini-fab color="warn" aria-label="Example icon button with a plus one icon" (click)="deletekey(i)">
+         
+                                            <mat-icon>
+                                                <span class="material-symbols-outlined">
+                                                    delete
+                                                    </span>
+                                               </mat-icon>
+                                           </button>
+                                    </div>
+                                </div>
+                                
+                                
+                            
+                            </td>
+                         
+                        </tr>
+                    </table>
+
+                </div>
+               
+
+            </div>
+            
+            <div class="container">
+                <div class="text-center">
+                    <button class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                aria-label="Button that displays a tooltip when focused or hovered over" 
+                color="accent" [disabled]="patternsaveform.invalid"
+                >Save</button>
+                </div>
+            </div>
+                 </form>
+        </div>
+    </div>
+</div>

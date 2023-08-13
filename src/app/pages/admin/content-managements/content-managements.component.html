@@ -1,0 +1,77 @@
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col offset-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+
+                    <form >
+                        <div *ngIf="currentFile" class="progress">
+                            <div
+                              class="progress-bar progress-bar-info progress-bar-striped"
+                              role="progressbar"
+                              attr.aria-valuenow="{{ progress }}"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              [ngStyle]="{ width: progress + '%' }"
+                            >
+                              {{ progress }}%
+                            </div>
+                          </div>
+
+                        <div class="mb-3">
+                       <h1>File Upload and Download</h1>
+                        <input class="form-control" type="file" (change)="selectFile($event)">
+                        <button class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                        aria-label="Button that displays a tooltip when focused or hovered over" [disabled]="!selectedFiles" (click)="upload()" color="primary">Upload</button>
+                        <div class="bg-success" role="alert">{{ message }}</div>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">File Name</th>
+                                <!-- <th scope="col">View</th> -->
+                                <th scope="col">Download</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr  *ngFor="let file of fileInfos | async">
+                                <td>{{file.rf_id}}</td>
+                                <td>{{file.name}}</td>
+                                <!-- <td>
+                                    <button  mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+         
+                                        <mat-icon>
+                                            <span class="material-symbols-outlined" >
+                                                visibility
+                                                </span>
+                                        </mat-icon>
+                                    </button>
+                                </td> -->
+                                <td>
+                                    <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon" tooltip="Download Image" (click)="download(file.rf_id)">
+         
+                                        <mat-icon>
+                                            <span class="material-symbols-outlined">
+                                                download_for_offline
+                                                </span>
+                                           </mat-icon>
+                                    </button>
+
+
+                                    
+                                </td>
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+                        
+                      </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

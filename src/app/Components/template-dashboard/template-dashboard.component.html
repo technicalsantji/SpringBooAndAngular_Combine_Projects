@@ -1,0 +1,51 @@
+
+<div class="container-fluid mt-3 ">
+    <div class="card bgc">
+    <div class="card-body ">
+        <button class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                    aria-label="Button that displays a tooltip when focused or hovered over" color="primary" routerLink="/admin/tem/addtem" (click)="clickfun()">Add New Template</button>
+                       
+                    <table class="table" *ngIf="vali">
+                        <thead>
+                          <tr>
+                            <th scope="col">Edits</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Descriptions</th>
+                            <th scope="col">Delete</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of tem ;index as i">
+                            <th scope="row"><button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon" tooltip="Download Image" (click)="updatekey(item.tem_id)">
+         
+                              <mat-icon>
+                                  <span class="material-symbols-outlined">
+                                      edit_square
+                                      </span>
+                                 </mat-icon>
+                             </button></th>
+                            <td>{{item.name}}</td>
+                            <td>{{item.description}}</td>
+                            <td><button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" tooltip="Download Image" (click)="deletekeybtn(item.tem_id)">
+         
+                              <mat-icon>
+                                  <span class="material-symbols-outlined">
+                                      delete
+                                      </span>
+                                 </mat-icon>
+                             </button></td>
+                            
+                          </tr>
+                         
+                        </tbody>
+                      </table>
+
+                      
+    </div>
+    </div> 
+
+
+
+                   
+                

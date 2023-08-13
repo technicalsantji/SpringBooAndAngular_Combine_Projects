@@ -1,0 +1,31 @@
+ <!-- navbar code Written here -->
+ <mat-toolbar class="mycolor">
+   <mat-toolbar-row>
+    <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon >menu</mat-icon>
+      </button>
+  
+      <span>MCA Project</span>
+      <span class="example-spacer"></span>
+  
+    <button *ngIf="!isloggedIn" mat-raised-button style="margin-right:10px;" (click)="openmodelboxsign()">Register</button>
+  
+    <button *ngIf="!isloggedIn" mat-raised-button (click)="openmodelboxlogin()"><span class="material-icons">login</span>&nbsp; Login</button>
+  
+    <button *ngIf="isloggedIn" mat-raised-button (click)="openmodelboxlogout()" class="mr-2"><span class="material-icons">logout</span>&nbsp; Logout</button>
+  
+    <button *ngIf="isloggedIn" class="m-2" mat-raised-button matTooltip="Check Your Details here "
+    aria-label="Button that displays a tooltip when focused or hovered over">{{user.firstname}}<span class="material-icons">
+      account_circle
+      </span></button>
+     
+<mat-menu #menu="matMenu">
+  <button routerLink="/cm" mat-menu-item>Content Managements</button>
+ 
+</mat-menu>
+
+   </mat-toolbar-row>
+  </mat-toolbar>
+
+  
+  

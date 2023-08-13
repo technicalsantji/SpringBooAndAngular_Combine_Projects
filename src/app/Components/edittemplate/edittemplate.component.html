@@ -1,0 +1,295 @@
+<div class="container-fluid mt-3 ">
+    <div class="card bgc">
+        <div class="card-body hgt">
+
+            <form [formGroup]="formdata" (ngSubmit)="addtemplate(formdata.value)">
+
+                <button class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                    aria-label="Button that displays a tooltip when focused or hovered over" color="primary"
+                    routerLink="/admin/tem">Back</button>
+
+
+                <div class="row mt-3">
+
+                    <div class="col-md-6">
+
+                        <div class="row">
+                            <div class="col-md-6 text-center"><label class="mt-3" for="name"><b>Name</b></label></div>
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Name</mat-label>
+                                    <input type="text" required="" matInput placeholder="Enter the Pattern Name"
+                                        formControlName="name">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 text-center"><label class="mt-3" for="name"><b>Descriptions</b></label>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Descriptions</mat-label>
+                                    <input required="" type="text" matInput placeholder="Enter the Pattern Descriptions"
+                                        formControlName="description">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <label class="mt-3" for="name"><b>Select Rule Type </b></label>
+                    </div>
+                    <!-- <form #selectdata="ngForm" (ngSubmit)="selefun(selectdata)"> -->
+                    <div class="col-md-9">
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <div class="row">
+                                    <mat-form-field appearance="fill" w-100>
+                                        <mat-label>Select Rule Type </mat-label>
+                                        <mat-select (selectionChange)="fun($event)">
+                                            <mat-option *ngFor="let item of option;index as i" [value]="i">
+                                                {{item}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                            <div class="col-md-8">
+                                <div *ngIf="intial">
+
+                                    <div class="parent">
+                                        <div class="row">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>{{defselected}}</mat-label>
+                                                <mat-select>
+                                                    <mat-option disabled>
+                                                        {{defselected}}
+                                                    </mat-option>
+
+                                                </mat-select>
+
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mag">
+                                            <a type="submit" class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                                                aria-label="Button that displays a tooltip when focused or hovered over"
+                                                color="primary">add</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div *ngIf="filerule">
+                                    <div class="parent">
+                                        <div>
+                                            <mat-form-field appearance="fill" w-100>
+                                                <mat-label> {{defselected}}</mat-label>
+                                                <mat-select #file>
+                                                    <mat-option disabled>
+                                                        {{defselected}}
+                                                    </mat-option>
+                                                    <mat-option *ngFor="let f of filerulename"
+                                                        [value]="f.f_Id">{{f.name}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="mag">
+                                            <a type="submit" class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                                                aria-label="Button that displays a tooltip when focused or hovered over"
+                                                color="primary" (click)="getfile(file)">add</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div *ngIf="keywordrule">
+
+                                    <div class="parent">
+                                        <div class="d1">
+                                            <mat-form-field appearance="fill" w-100>
+                                                <mat-label> {{defselected}}</mat-label>
+                                                <mat-select #key>
+                                                    <mat-option disabled>
+                                                        {{defselected}}
+                                                    </mat-option>
+                                                    <mat-option *ngFor="let k of keywordrulename"
+                                                        [value]="k.k_Id">{{k.name}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="mag">
+                                            <a type="submit" class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                                                aria-label="Button that displays a tooltip when focused or hovered over"
+                                                color="primary" (click)="getkey(key)">add</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div *ngIf="patternrule">
+                                    <div class="parent">
+                                        <div>
+                                            <mat-form-field appearance="fill" w-100>
+                                                <mat-label> {{defselected}}</mat-label>
+                                                <mat-select #patt>
+                                                    <mat-option disabled>
+                                                        {{defselected}}
+                                                    </mat-option>
+                                                    <mat-option *ngFor="let p of patternrulename"
+                                                        [value]="p.p_Id">{{p.name}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="mag">
+                                            <a type="submit" class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                                                aria-label="Button that displays a tooltip when focused or hovered over"
+                                                color="primary" (click)="getpatt(patt)">add</a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                    <!-- </form> -->
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                      
+
+                        <h4 class="text-center">Keyword Rule</h4>
+                        <table border="1px groove blue" class="table mt-3">
+                         
+                            <tr *ngFor="let item of keywordIDarray3;index as i">
+                                <td style="background-color: rgb(236, 236, 236);border-bottom:1px groove rgb(108, 108, 138);box-shadow: -29px 13px 43px -4px rgba(81, 122, 233, 0.671);"
+                                    class="m-2" *ngIf="onkey">
+                                    <div class="parent">
+                                        <div class="row1">
+                                            <input checked type="checkbox" checked [value]="item"><b>{{item.kname}}</b>
+                                        </div>
+
+                                        <div class="row2">
+                                            <input checked type="checkbox" checked [value]="item"> <b>{{item.kt_name}}
+
+                                            </b>
+                                        </div>
+                                        <div class="row3">
+                                            <button mat-mini-fab color="warn"
+                                                aria-label="Example icon button with a plus one icon"
+                                                (click)="deletekey(i)">
+
+                                                <mat-icon>
+                                                    <span class="material-symbols-outlined">
+                                                        delete
+                                                    </span>
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+
+                        <h4 class="text-center">Pattern Rule</h4>
+                        <table border="1px groove blue" class="table mt-3">
+                         
+                            <tr *ngFor="let item of patternIdarray2;index as i">
+                                <td style="background-color: rgb(236, 236, 236);border-bottom:1px groove rgb(108, 108, 138);box-shadow: -29px 13px 43px -4px rgba(81, 122, 233, 0.671);"
+                                    class="m-2" *ngIf="onpatt">
+                                    <div class="parent">
+                                        <div class="row1">
+                                            <input checked type="checkbox" checked [value]="item"><b>{{item.pname}}</b>
+                                        </div>
+
+                                        <div class="row2">
+                                            <input checked type="checkbox" checked [value]="item"> <b>{{item.pt_name}}
+
+                                            </b>
+                                        </div>
+                                        <div class="row3">
+                                            <button mat-mini-fab color="warn"
+                                                aria-label="Example icon button with a plus one icon"
+                                                (click)=" deletepatt(i)">
+
+                                                <mat-icon>
+                                                    <span class="material-symbols-outlined">
+                                                        delete
+                                                    </span>
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+
+                        <h4 class="text-center">File Rule</h4>
+                        <table border="1px groove blue" class="table mt-3">
+                         
+                            <tr *ngFor="let item of fileIdarray1;index as i">
+                                <td style="background-color: rgb(236, 236, 236);border-bottom:1px groove rgb(108, 108, 138);box-shadow: -29px 13px 43px -4px rgba(81, 122, 233, 0.671);"
+                                    class="m-2" *ngIf="onfile">
+                                    <div class="parent">
+                                        <div class="row1">
+                                            <input checked type="checkbox" checked [value]="item.f_Id" ><b>{{item.fname}}</b>
+                                        </div>
+
+                                        <div class="row2">
+                                            <input checked type="checkbox" checked [value]="item.ft_name"> <b>{{item.ft_name}}
+
+                                            </b>
+                                        </div>
+                                        <div class="row3">
+                                            <button mat-mini-fab color="warn"
+                                                aria-label="Example icon button with a plus one icon"
+                                                (click)=" deletefile(i)">
+
+                                                <mat-icon>
+                                                    <span class="material-symbols-outlined">
+                                                        delete
+                                                    </span>
+                                                </mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="text-center">
+                        <button class="m-2" mat-raised-button matTooltip="Are you sure !! "
+                            aria-label="Button that displays a tooltip when focused or hovered over" color="accent"
+                            type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

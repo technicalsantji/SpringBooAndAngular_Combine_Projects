@@ -1,0 +1,57 @@
+
+
+    <input type="text" #namr >
+<button type="submit" (click)="add(namr)">add</button>
+
+<ul *ngFor="let item of arry">
+
+    <li>{{item.name}}</li>
+</ul>
+<p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      Toggle width collapse
+    </button>
+  </p>
+  <div style="min-height: 120px;">
+    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+      <div class="card card-body" style="width: 300px;">
+        This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+      </div>
+    </div>
+  </div>
+
+  <p>
+   
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+        <mat-icon>
+        <span class="material-symbols-outlined">
+            add_circle
+            </span>
+
+         </mat-icon>
+
+         <mat-icon>
+            <span class="material-symbols-outlined">
+                remove_circle
+                </span>
+                    
+             </mat-icon>
+
+
+</button>
+    
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button><br>
+      </div>
+    </div>
+  </div>
+  
