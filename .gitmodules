@@ -1,0 +1,3 @@
+[submodule "Content-Detection-Using-Apache-Tika"]
+	path = Content-Detection-Using-Apache-Tika
+	url = https://github.com/technicalsantji/Content-Detection-Using-Apache-Tika.git
