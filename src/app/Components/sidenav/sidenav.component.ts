@@ -42,7 +42,7 @@ export class SidenavComponent implements OnInit{
     this.observer
       .observe(['(max-width:800px)'])
       .pipe(delay(1), untilDestroyed(this))
-      .subscribe((res) => {
+      .subscribe((res:any) => {
         if (res.matches) {
           this.sidenav.mode = 'over';
           this.sidenav.close();
@@ -55,7 +55,7 @@ export class SidenavComponent implements OnInit{
     this.router.events
       .pipe(
         untilDestroyed(this),
-        filter((e) => e instanceof NavigationEnd)
+        filter((e:any) => e instanceof NavigationEnd)
       )
       .subscribe(() => {
         if (this.sidenav.mode === 'over') {
