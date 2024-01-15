@@ -665,4 +665,73 @@ header label {
   .about .column .content .buttons a:last-child {
     margin: 1rem 0;
   }
+  .home .content p {
+    font-size: 10px
+  }
+  .home .content h3 {
+    font-size: 1.6rem;
+  }
+  .footer .credit {
+    font-size: 1.2rem;
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+    color: #fff;
+    border-top: 0.1rem solid #fff5;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  .newsletter h3 {
+    color: #fff;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+  }
+  .about .column .content h3 {
+    font-size:1.7rem;
+    color: #666;
+    font-weight: 900;
+  }
+  
+  .about .column .content p {
+    font-size: 1rem;
+    color: #666;
+    padding: 1rem 0;
+  }
+
+.newsletter form {
+  display: flex;
+  max-width: 40rem;
+  border: 0.2rem solid #fff;
+  padding: 0.5rem;
+  border-radius: 5rem;
+  margin: 2rem auto;
+  height: 5.5rem;
+}
+
+.newsletter form input[type="email"] {
+  padding: 0 2rem;
+  font-size: 1rem;
+  background: none;
+  width: 100%;
+  color: #faf7f7;
+  text-transform: none;
+  background: none;
+}
+
+.newsletter form input[type="email"]::placeholder {
+  color: #eee;
+  text-transform: capitalize;
+}
+
+.newsletter form input[type="submit"] {
+  background: #dd0949;
+  width: 10rem;
+  font-size: 1rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter form input[type="submit"]:hover {
+  color:blue;
+}
 }
